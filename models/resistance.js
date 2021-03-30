@@ -18,4 +18,6 @@ const Resistance = new Resistance({
     // resistance-duration:{
     //     type: Number
     // }
-})
+});
+const Resistance = mongoose.model("Resistance", ResistanceSchema);
+module.exports = Resistance;
