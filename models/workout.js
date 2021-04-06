@@ -23,12 +23,12 @@ const WorkoutSchema = new Schema({
         type: Number
     },
     reps:{
-        type:Number
+        type: Number
     }
 });
 
-const Cardio = mongoose.model("Cardio", CardioSchema);
+const Excersize = mongoose.model("Workout", WorkoutSchema);
 
-module.exports = Cardio;
+module.exports = Excersize;
 
 //https://mongoosejs.com/docs/tutorials/virtuals.html
