@@ -1,35 +1,15 @@
-const router = require("express").Router();
-const Transaction = require("../models/workout");
-
-router.post("/api/transaction", ({ body }, res) => {
-  Transaction.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+const Workout = require("../models/workout");
+// mongoose querry help
+//https://mongoosejs.com/docs/models.html
+module.exports = function (app) {
+  //get workouts
+  app.get('/api/workouts', function (req, res){
+    Workout.find()
+    .then(data => (
+      res.json(data)
+    ))
+    .catch(err =>{
+      res.json(err)
     })
-    .catch(err => {
-      res.status(400).json(err);
-    });
-});
-
-router.post("/api/transaction/bulk", ({ body }, res) => {
-  Transaction.insertMany(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
-});
-
-router.get("develop/public/exercise.html", (req, res) => {
-  Transaction.find({})
-    .sort({ date: -1 })
-    .then(dbTransaction => {
-      res.json(dbTransaction);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
-});
-
-module.exports = router;
+  })
+}
