@@ -12,7 +12,8 @@ module.exports = function (app) {
       res.json(err)
     })
   });
-// app.post('/api/workouts', function (req, res){
+
+// app.post('/api/workouts', function ({body}, res){
 //   Workout.create()
 //    .then(data => (
 //      res.json(data)
@@ -21,4 +22,14 @@ module.exports = function (app) {
 //      res.json(err)
 //    })
 //  });
+
+// app.post("/api/workouts", ({ body }, res) => {
+//   Workout.create(body)
+//     .then(dbTransaction => {
+//       res.json(dbTransaction);
+//     })
+//     .catch(err => {
+//       res.status(400).json(err);
+//     });
+// });
  }
