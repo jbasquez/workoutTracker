@@ -24,13 +24,15 @@ const workoutSchema = new Schema(
                 },
                 duration:{
                     type: Number,
-                    required: "enter how long"
+                    required: "Please enter how long you preformed this workout"
                 },
                 weight:{
-                    type: Number
+                    type: Number,
+                    required: "enter in the weight used"
                 },
                 reps:{
-                    type: Number
+                    type: Number,
+                    required: "How many reps did you do?"
                 }
             }
         ]
